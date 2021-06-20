@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version 3.0.1-p64
 
-Things you may want to cover:
+Rails version 6.1.3.2
 
-* Ruby version
+Use curl for testing:
 
-* System dependencies
+Create user: curl -X POST 'http://localhost:3000/users/' -d name='Tom Jerry'    # 'Tom Jerry' is name of user
 
-* Configuration
+User follow: curl -X POST 'http://localhost:3000/users/1/follow' -d follower=2  # 1,2 are user_id, user with id = 2 follow user with id = 1
 
-* Database creation
+Unfollow: curl -X DELETE 'http://localhost:3000/users/1/unfollow' -d follower=2 # 1,2 are user_id, user with id = 2 unfollow user with id = 1
 
-* Database initialization
+User clock-in: curl -X POST 'http://localhost:3000/users/1/clock_in
 
-* How to run the test suite
+Get sleeprecords for user with id: curl -X GET 'http://localhost:3000/users/1/sleep_records'
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Get sleeprecords for followees of user over the past week: curl -X GET 'http://localhost:3000/users/1/followee_records'

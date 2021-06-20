@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_20_164238) do
+ActiveRecord::Schema.define(version: 2021_06_20_174007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2021_06_20_164238) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_clocks_on_user_id"
+  end
+
+  create_table "follow_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followee_id"], name: "index_follow_relationships_on_followee_id"
+    t.index ["follower_id", "followee_id"], name: "index_follow_relationships_on_follower_id_and_followee_id", unique: true
+    t.index ["follower_id"], name: "index_follow_relationships_on_follower_id"
   end
 
   create_table "sleep_records", force: :cascade do |t|

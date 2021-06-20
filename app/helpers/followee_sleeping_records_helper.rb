@@ -1,0 +1,2 @@
+module FolloweeSleepingRecordsHelper
+end
