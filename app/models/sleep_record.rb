@@ -1,3 +1,4 @@
 class SleepRecord < ApplicationRecord
-  belongs_to :users
+  validates_presence_of :sleep_time, :wake_time
+  belongs_to :user
 end
