@@ -7,7 +7,7 @@ class Clock < ApplicationRecord
       str = 'Started sleep at: ' + check_in.to_s
     else
       check_out = DateTime.now
-      user.sleep_records.create!(sleep_time: check_in, wake_time: check_out, sleep_duration: check_out.to_i - check_in.to_i)
+      user.sleep_records.create!(sleep_time: check_in, wake_time: check_out)
       update!(check_in: nil)
       str = 'Woke up at: ' + check_out.to_s
     end

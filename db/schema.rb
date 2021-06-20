@@ -16,8 +16,7 @@ ActiveRecord::Schema.define(version: 2021_06_20_164238) do
   enable_extension "plpgsql"
 
   create_table "clocks", force: :cascade do |t|
-    t.datetime "sleep_time"
-    t.datetime "wake_time"
+    t.datetime "checkin"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
